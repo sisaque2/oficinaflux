@@ -7,14 +7,16 @@ const db = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const verifyToken = require('./middlewares/authMiddleware');
 const authorizeRole = require('./middlewares/roleMiddleware');
+const serviceRoutes = require('./routes/serviceRoutes');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// registo das rotas publicas de autenticação
+// registo das rotas
 app.use('/api/auth', authRoutes);
+app.use('/api/servicos', serviceRoutes);
 
 // rota de teste pública
 app.get('/', (req, res) => {
