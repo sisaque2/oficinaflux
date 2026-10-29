@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const VehicleController = require('../controllers/vehicleController');
-const AttendanceController = require('../controllers/attendanceController');
+const VehicleController = require('../controllers/veicleController');
+const AttendanceController = require('../controllers/atendimentoController');
 
 const verifyToken = require('../middlewares/authMiddleware');
 const authorizeRole = require('../middlewares/roleMiddleware');

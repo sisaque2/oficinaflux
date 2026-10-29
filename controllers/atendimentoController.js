@@ -1,4 +1,4 @@
-const Attendance = require('../models/Attendance');
+const Attendance = require('../models/Atendimento');
 
 class AttendanceController {
     static async create(req, res) {

@@ -1,7 +1,7 @@
-const Vehicle = require('../models/Vehicle');
+const Veicle = require('../models/veicle');
 const User = require('../models/User');
 
-class VehicleController {
+class VeicleController {
     static async register(req, res) {
         const { cliente_id, placa, modelo, marca, ano } = req.body;
 
@@ -17,12 +17,12 @@ class VehicleController {
             }
 
             // verifica se a placa já existe
-            const veiculoExistente = await Vehicle.findByPlate(placa);
+            const veiculoExistente = await Veicle.findByPlate(placa);
             if (veiculoExistente) {
                 return res.status(422).json({ mensagem: 'Já existe um veículo cadastrado com esta placa!' });
             }
 
-            const novoVeiculo = await Vehicle.create({ cliente_id, placa, modelo, marca, ano });
+            const novoVeiculo = await Veicle.create({ cliente_id, placa, modelo, marca, ano });
 
             return res.status(201).json({
                 mensagem: 'Veículo cadastrado com sucesso!',
@@ -36,4 +36,4 @@ class VehicleController {
     }
 }
 
-module.exports = VehicleController;
+module.exports = VeicleController;
